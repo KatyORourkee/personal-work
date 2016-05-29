@@ -1,0 +1,50 @@
+﻿@{
+    ViewBag.Title = "Ink Calculator";
+}
+
+<h4 style="display: inline"> >> Calculator</h4>
+<div id="add">
+    <div id="addJs">
+        <br/>
+        <h5>JavaScript</h5>
+        <div id="addJsForm">
+            <input id="addJsNumA" type="number" value="0" onchange="adsJs()"/> +
+            <input id="addJsNumB" type="number" value="0" onchange="addJs()"/> =
+            <span id="sumJs">0</span>
+        </div>
+        <script>
+            function addJs() {
+                var numA = +document.getElementById("addJsNumA").value;
+                var numB = +document.getElementById("addJsNumB").value;
+                var sum = numA + numB;
+                document.getElementById("sumJs").innerHTML = sum;
+            }
+        </script>
+    </div>
+    <br/>
+    <div id="addRazor">
+        <h5>Razor</h5>
+        @{
+            var numA = 0;
+            var numB = 0;
+            var sumRazor = 0;
+
+            if (IsPost)
+            {
+                numA = Request["addRazorNumA"].AsInt();
+                numB = Request["addRazorNumB"].AsInt();
+
+                if (numA != 0 && numB != 0)
+                {
+                    sumRazor = numA + numB;
+                }
+            }
+        }
+        <form id="addRazorForm" method="post">
+            <input id="addRazorNumA" name="addRazorNumA" type="number" value="@numA"/> +
+            <input id="addRazorNumB" name="addRazorNumB" type="number" value="@numB"/> =
+            <span id="sumRazor" name="sumRazor">@sumRazor</span>
+            <input type="submit" value="Add"/>
+        </form>
+    </div>
+</div>
