@@ -2,28 +2,28 @@
     ViewBag.Title = "Ink Calculator";
 }
 
-<h4 style="display: inline"> >> Calculator</h4>
-<div id="add">
-    <div id="addJs">
+@section Scripts
+{
+    <script src="~/src/Home/Calculator.js"></script>
+}
+
+<h4 id="calculatorPageTitle" class="pageTitle"> >> Calculator</h4>
+
+<div id="addDiv">
+
+    <div id="addJsDiv">
         <br/>
-        <h5>JavaScript</h5>
+        <h5 class="technologyUsed">JavaScript</h5>
         <div id="addJsForm">
-            <input id="addJsNumA" type="number" value="0" onchange="adsJs()"/> +
+            <input id="addJsNumA" type="number" value="0" onchange="addJs()"/> +
             <input id="addJsNumB" type="number" value="0" onchange="addJs()"/> =
             <span id="sumJs">0</span>
         </div>
-        <script>
-            function addJs() {
-                var numA = +document.getElementById("addJsNumA").value;
-                var numB = +document.getElementById("addJsNumB").value;
-                var sum = numA + numB;
-                document.getElementById("sumJs").innerHTML = sum;
-            }
-        </script>
     </div>
     <br/>
-    <div id="addRazor">
-        <h5>Razor</h5>
+
+    <div id="addRazorDiv">
+        <h5 class="technologyUsed">Razor</h5>
         @{
             var numA = 0;
             var numB = 0;
@@ -44,34 +44,18 @@
             <input id="addRazorNumA" name="addRazorNumA" type="number" value="@numA"/> +
             <input id="addRazorNumB" name="addRazorNumB" type="number" value="@numB"/> =
             <span id="sumRazor" name="sumRazor">@sumRazor</span>
-            <input type="submit" value="Add"/>
+            <span class="razorAddButtonSpan"><input type="submit" value="Add" /></span>
         </form>
     </div>
     <br/>
-    <div id="addKnockout">
-        <h5>Knockout</h5>
+
+    <div id="addKnockoutDiv">
+        <h5 class="technologyUsed">Knockout</h5>
         <div id="addKnockoutForm">
             <input id="addKnockoutNumA" name="addKnockoutNumA" type="number" data-bind="value: numKnockoutA"/> +
             <input id="addKnockoutNumB" name="addKnockoutNumB" type="number" data-bind="value: numKnockoutB"/> =
             <span id="sumKnockout" name="sumKnockout" data-bind="text: sumKnockout"></span>
         </div>
-        <div id="addKnockoutViewModel">
-            @section Scripts
-            {
-                <script>
-                    $(function() {
-
-                        function viewModel() {
-                            var self = this;
-                            self.numKnockoutA = ko.observable(0);
-                            self.numKnockoutB = ko.observable(0);
-                            self.sumKnockout = ko.computed(function () { return +self.numKnockoutA() + +self.numKnockoutB(); });
-                        };
-
-                        ko.applyBindings(new viewModel());
-                    });
-                </script>
-            }
-        </div>
     </div>
-</div>
+
+</div> @*end add div*@

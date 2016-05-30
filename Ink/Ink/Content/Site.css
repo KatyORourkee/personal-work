@@ -26,3 +26,27 @@ textarea {
 input[type="number"] {
    width:70px;
 }
+
+.pageTitle {
+    display: inline
+}
+
+.inputTextArea {
+    width: 500px; height: 100px;
+}
+
+.razorAddButtonSpan {
+    padding-left: 10px;
+}
+
+.pageLink {
+    
+}
+
+.pageDescription {
+    
+}
+
+.technologyUsed {
+    
+}

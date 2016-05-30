@@ -2,13 +2,13 @@
     ViewBag.Title = "Ink";
 }
 
-<div id="pages">
-    <br/>
-    <br/>
-    @Html.ActionLink("Calculator", "Calculator", "Home")
-    <h5>Addition examples using JavaScript, Razor and Knockout.</h5>
+<div id="listOfPages">
     <br />
     <br />
-    @Html.ActionLink("Yoda Instructor", "YodaInstructor", "Home")
-    <h5>The zen teachings of Yoda using Knockout.</h5>
+    <span class="pageLink">@Html.ActionLink("Calculator", "Calculator", "Home")</span>
+    <h5 class="pageLinkDescription">Addition examples using JavaScript, Razor and Knockout.</h5>
+    <br />
+    <br />
+    <span class="pageLink">@Html.ActionLink("Yoda Instructor", "YodaInstructor", "Home")</span>
+    <h5 class="pageLinkDescription">A Knockout example with a ViewModel function that calls an external API.</h5>
 </div>

@@ -3,19 +3,19 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
     <div class="container body-content">
-        <h1 style="display: inline">Ink</h1>
+        <h1 class="pageTitle">Ink</h1>
         <br/>
         <br/>
         @RenderBody()
         <hr/>
         <footer>
-            <p>&copy; @DateTime.Now.Year - A space has no plan</p>
+            <p>&copy; @DateTime.Now.Year - A space has no plan.</p>
         </footer>
     </div>
     @Scripts.Render("~/bundles/jquery")
