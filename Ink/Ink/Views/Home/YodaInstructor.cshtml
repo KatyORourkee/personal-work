@@ -1,0 +1,46 @@
+﻿@{
+    ViewBag.Title = "Ink Yoda Instructor";
+}
+
+@section Scripts
+{
+    <script>
+        $(function() {
+
+            function viewModel() {
+                var self = this;
+                self.sentence = ko.observable("Enter a sentence, and you will learn how to 'Yoda'.");
+                self.yoda = ko.observable();
+
+                self.teach = function () {
+                    $.ajax({
+                        url: "https://yoda.p.mashape.com/yoda?sentence=" + self.sentence(),
+                        type: "GET",
+                        beforeSend: function(xhr) {
+                             xhr.setRequestHeader('X-Mashape-Key', 'o5CVpJ6fr9mshXVRzDciilOn6ndnp1yD6PYjsnuR1reXLhRrAT');
+                        },
+                        success: function (data) {
+                            self.yoda(data);
+                        }
+                    });
+                }
+            };
+
+            ko.applyBindings(new viewModel());
+        });
+    </script>
+}
+
+<h4 style="display: inline"> >> Yoda Instructor</h4>
+<div id="yodaInstructor">
+    <br/>
+    <h5>Knockout</h5>
+    <div id="yodaInput">
+        <textArea style="width: 500px; height: 100px;" id="yoda" type="text" data-bind="value: sentence"></textArea>
+        <br/>
+        <br />
+        <p id="yodaPair" data-bind="text: yoda"></p>
+        <br />
+        <input type="submit" value="Teach me, Yoda." data-bind="click: teach"/>
+    </div>
+</div>

@@ -47,4 +47,31 @@
             <input type="submit" value="Add"/>
         </form>
     </div>
+    <br/>
+    <div id="addKnockout">
+        <h5>Knockout</h5>
+        <div id="addKnockoutForm">
+            <input id="addKnockoutNumA" name="addKnockoutNumA" type="number" data-bind="value: numKnockoutA"/> +
+            <input id="addKnockoutNumB" name="addKnockoutNumB" type="number" data-bind="value: numKnockoutB"/> =
+            <span id="sumKnockout" name="sumKnockout" data-bind="text: sumKnockout"></span>
+        </div>
+        <div id="addKnockoutViewModel">
+            @section Scripts
+            {
+                <script>
+                    $(function() {
+
+                        function viewModel() {
+                            var self = this;
+                            self.numKnockoutA = ko.observable(0);
+                            self.numKnockoutB = ko.observable(0);
+                            self.sumKnockout = ko.computed(function () { return +self.numKnockoutA() + +self.numKnockoutB(); });
+                        };
+
+                        ko.applyBindings(new viewModel());
+                    });
+                </script>
+            }
+        </div>
+    </div>
 </div>

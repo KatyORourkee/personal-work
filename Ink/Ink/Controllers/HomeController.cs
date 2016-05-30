@@ -13,5 +13,10 @@ namespace Ink.Controllers
         {
             return View();
         }
+
+        public ActionResult YodaInstructor()
+        {
+            return View();
+        }
     }
 }
